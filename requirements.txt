@@ -1,1 +1,4 @@
 line-bot-sdk
+requests
+gspread
+google-auth
