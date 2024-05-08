@@ -69,10 +69,12 @@ def handle_message(event):
     #入力に応じて返す処理を分岐
     if input_text == "ユーザーID確認" or input_text == "ユーザーid確認" or input_text == "ユーザーid" or input_text == "ユーザーID":
         return_words = f"あなたのuserIDは\n{user_id}\nです。他の人に教えることが無いように保管してください。"
-
-    elif input_text[:2] == "登録" or input_text[:2] == "登録":
-        user_name = input_text[3:]
-        return_words = auth(user_name, user_id)
+    elif input_text[:2] == "登録":
+        if len(input_text) < 4:
+            return_words = "登録：平松太郎　のような形式で名前を入れてください。"
+        else:
+            user_name = input_text[3:]
+            return_words = auth(user_name, user_id)
     elif input_text == "説明":
         return_words = """以下のフォーマットで入力して下さい。一部項目のみの入力も可能ですが、必ず改行はして下さい。日に何度でも入力可能です。\n\n本日のベスト:\n明日必ずやること:\n今日をやり直せるなら:\n今日の一言:\n\n日誌は\nhttps://diaryviewer-hiramatst2023.streamlit.app\nで閲覧できます。\n「ユーザーID確認」と入力すると自分のIDが確認できます。
         """
