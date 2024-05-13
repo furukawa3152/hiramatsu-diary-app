@@ -190,7 +190,7 @@ def lambda_handler(event, context):
         #時間に応じた実行
         #8時台は昨日宣言した「明日やること」の一覧を投げる
 
-        if hour_str == "23":
+        if hour_str == "08":
             scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
             # ダウンロードしたjsonファイル名をクレデンシャル変数に設定。
             credentials = Credentials.from_service_account_file("hiramatsudiaryproject-af40bbe80284.json", scopes=scope)
